@@ -15,16 +15,32 @@
         android:layout_weight=".1"
         android:layout_marginBottom="10dp"
         android:hint="Enter To Do" />
-    <Spinner
-        android:id="@+id/toDoCategory"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></Spinner>
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/normalText"
+            android:text="Category :"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
+
+        <Spinner
+            android:id="@+id/toDoCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></Spinner>
+
+    </LinearLayout>
 
     <CheckBox
         android:id="@+id/isDone"
         android:text="@string/todo_is_done"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"/>
 
     <DatePicker
         android:id="@+id/datePicker"

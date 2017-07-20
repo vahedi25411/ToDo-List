@@ -53,7 +53,8 @@ public class AddToDoFragment extends DialogFragment{
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource( this.getContext() ,
                 R.array.categories_array , R.layout.support_simple_spinner_dropdown_item);
         //Set the spinner item's layout in adapter
-        adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(R.layout.spinner_layout);
+        //adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
         //Set the spinner's adapter
         spinner.setAdapter(adapter);
 
