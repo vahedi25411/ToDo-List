@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.sargent.mark.todolist.data.Contract;
@@ -71,6 +72,8 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.ItemHo
     class ItemHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView descr;
         TextView due;
+        //ImageView to show check image near the finished tasks
+        ImageView img;
         String duedate;
         String description;
         long id;
@@ -80,6 +83,8 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.ItemHo
             super(view);
             descr = (TextView) view.findViewById(R.id.description);
             due = (TextView) view.findViewById(R.id.dueDate);
+            //assign the reference to ImageView of the layout to img variable
+            img = (ImageView) view.findViewById(R.id.check_image);
             view.setOnClickListener(this);
         }
 
@@ -94,11 +99,17 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.ItemHo
             due.setText(duedate);
 
             // Check if todoStatus is 'done' , the background color of view item is going to change
-            if (cursor.getInt(cursor.getColumnIndex(Contract.TABLE_TODO.COLUMN_NAME_IS_DONE))==1)
-                holder.itemView.setBackgroundColor(Color.parseColor("#f4f4f4"));
-            else
+            if (cursor.getInt(cursor.getColumnIndex(Contract.TABLE_TODO.COLUMN_NAME_IS_DONE))==1) {
+                holder.itemView.setBackgroundColor(Color.parseColor("#EFC8EB"));
+                //This line makes the check image visible when a task has been done
+                img.setVisibility(View.VISIBLE);
+            }
+            else {
+                //This line makes the check image invisible when a task has not been done
+                img.setVisibility(View.INVISIBLE);
                 //otherwise the background color will be removedss
                 holder.itemView.setBackgroundColor(0);
+            }
             holder.itemView.setTag(id);
 
             //Keeping the value of the category and status of the item in holder to use it fill the update fragment
