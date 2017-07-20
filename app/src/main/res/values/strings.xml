@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ToDoList</string>
+    <string name="todo_is_done">Is done</string>
+    <string-array name="categories_array">
+        <item>Primary</item>
+        <item>Home</item>
+        <item>Work</item>
+        <item>School</item>
+    </string-array>
+</resources>
